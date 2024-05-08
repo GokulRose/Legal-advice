@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="initial-scale=1, width=device-width" />
+    {%load static%}
+    <link rel="stylesheet" href="{%static 'global.css'%}" />
+    <link rel="stylesheet" href="{%static 'Main.css'%}" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;600;700&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Segoe UI:wght@400;700&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap"
+    />
+    <style>
+      .not-visible{
+        display: none;
+      }
+      .blur{
+        background-color: white;
+        opacity: 10%;
+      }
+      .center {
+      border: 5px solid;
+      margin: auto;
+      width: 50%;
+      padding: 10px;
+      }
+    </style>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  </head>
+  <body onload="validate()">
+    <div id="main">
+    <div class="main">
+      <b class="multilegalinfo4" id="multiLegalinfoText">
+        <span>Multi</span>
+        <span class="l4">L</span>
+        <span class="egal4">egal</span>
+        <span>info</span>
+      </b>
+        <form action="https://www.google.com/search"  method="get" name="searchform" target="_blank">
+<input name="sitesearch" type="hidden">
+<input autocomplete="on" class="main-child" name="q" placeholder="Search in example.com" required="required"  type="text">
+<button  type="submit" style="margin-top: 880px;margin-left: 1350px;border-radius: 15px;width: 80px;">Search</button>
+</form>
+<button  type="submit" style="margin-top: 50px;margin-left: 1200px;border-radius: 15px;width: 80px;">polynomial</button>
+      <div class="content">
+        <div class="content-child"></div>
+        <div class="when-an-individual-starts-earn-wrapper">
+          <div class="when-an-individual" style="bottom: 350px;left: 300px;"> 
+            Welcome {{name}}
+            
+            <br>
+            <br>
+            <div style="background-color: lime;align-items: center;width: 160px;border-radius: 10px;width: 160px;margin-left: 30px;">
+            <a href="/lol/" style="text-decoration:none; color: black;margin-bottom: 30px;">AI support</a>
+            </div>
+           
+          </div>
+        </div>
+        <div class="apply-for-a-pan-card-wrapper">
+          <div class="apply-for-a"></div>
+        </div>
+        <img class="vector-icon" alt="" src="{%static 'public/vector.svg'%}" />
+      </div>
+      <div class="todo">
+        <div class="instance-parent">
+          <img class="ellipse-icon" alt="" src="{%static 'public/ellipse-1.svg'%}" />
+
+          <div class="vote-with-a-voter-id-wrapper" >
+            <b class="vote-with" id="vote"></b>
+          </div>
+        </div>
+        <div class="instance-group">
+          <img class="ellipse-icon" alt="" src="{%static 'public/ellipse-1.svg'%}" />
+
+          <div class="vote-with-a-voter-id-wrapper">
+            <b class="vote-with" id="pan"
+              ></b
+            >
+          </div>
+        </div>
+        <div class="instance-container">
+          <img class="ellipse-icon" alt="" src="{%static 'public/ellipse-1.svg'%}" />
+
+          <div class="vote-with-a-voter-id-wrapper">
+            <b class="vote-with" id="pass"
+              ></b
+            >
+          </div>
+        </div>
+        <div class="instance-parent6">
+          <img class="ellipse-icon" alt="" src="{%static 'public/ellipse-1.svg'%}" />
+
+          <div class="vote-with-a-voter-id-wrapper">
+            <b class="vote-with" id="license"></b>
+          </div>
+        </div>
+        <div class="to-do-wrapper">
+          <b class="apply-for-a">to do</b>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    var Vote=document.getElementById('vote')
+    var License=document.getElementById('license')
+    var Pan=document.getElementById('pan')
+    var Pass=document.getElementById('pass')
+     function validate(){
+      $.ajax({
+        url:'/validate/',
+        method:'POST',
+        dataType:'json',
+        success:function(response){
+          if (response.success){
+          const vot=response.vot
+          const pan=response.pan
+          const lic=response.lic
+          const pas=response.pas
+          if(vot==false){
+            Vote.innerHTML="<a href='https://voters.eci.gov.in/' target='_blank' style='color: #14e41c;'>pls apply for voter id</a>"
+          }
+          if (pan==false){
+            Pan.innerHTML="<a href='https://www.onlineservices.nsdl.com/paam/endUserRegisterContact.html' target='_blank' style='color: #14e41c;'>pls apply for pan card id</a>"
+
+          }
+          if (lic==false){
+            License.innerHTML="<a href='https://parivahan.gov.in/parivahan//en/content/driving-licence-0' target='_blank' style='color: #14e41c;'>pls apply for license</a>"
+          }
+          if (pas==false){
+            Pass.innerHTML="<a href='https://passportindia.gov.in/AppOnlineProject/online/procFormSubOnl' target='_blank' style='color: #14e41c;'>pls apply for passport</a>"
+          }
+
+          }
+          else{
+            Vote.innerHTML=response.error
+          }
+        }  
+      
+      })
+     }
+  </script>
+  </body>
+</html>

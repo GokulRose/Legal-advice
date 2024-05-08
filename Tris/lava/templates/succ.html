@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+    <html>
+    <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, width=device-width">
+    
+    {%load static%}
+<link rel="stylesheet" href="{%static 'global2.css'%}" />
+<link rel="stylesheet"  href="{%static 'index2.css'%}" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" />
+    
+    
+    
+    </head>
+    <body>
+    
+    <div class="success-fully-login">
+      <b class="your-account-created">YOUR ACCOUNT CREATED SUCCESSFULLY</b>
+      <div class="footer">
+        <div class="all-rights-reserved2023">© 2024 All Rights reserved2023</div>
+      </div>
+      <div class="select" id="sELECTContainer">
+        <div class="select-child">
+        </div>
+        <div class="click-to-login"><a href="/login/" style="text-decoration:none;color: white;">Click to login</a></div>
+      </div>
+    </div>
+    
+    
+    
+    
+    <script>
+          var sELECTContainer = document.getElementById("sELECTContainer");
+          if(sELECTContainer) {
+            sELECTContainer.addEventListener("click", function (e) {
+              // Please sync "login" to the project
+            });
+          }</script></body>
+  </html>
